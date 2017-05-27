@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BC17883-B1A7-456E-89EE-FCB7CD23408F}</ProjectGuid>
+    <ProjectGuid>{3575C7BB-D43F-448F-B34E-0F42BDA115D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DSmall.DynamicsCrm.UnitTest.Core</RootNamespace>
-    <AssemblyName>DSmall.DynamicsCrm.UnitTest.Core</AssemblyName>
+    <RootNamespace>Springboard365.Xrm.UnitTest.Core</RootNamespace>
+    <AssemblyName>Springboard365.Xrm.UnitTest.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +28,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Net40|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,8 +68,17 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.5.0.17\lib\net40\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Xrm.Sdk">
       <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.5.0.17\lib\net40\Microsoft.Xrm.Sdk.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
@@ -79,8 +86,16 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PluginExecutionContextExtensions.cs" />
@@ -90,17 +105,16 @@
     <Compile Include="SpecificationFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DSmall.DynamicsCrm.UnitTest.Core.nuspec" />
+    <None Include="NuGet\NuGetPush.bat" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
-    <MSBuild Projects="..\DSmall.DynamicsCrm.UnitTest.Core.sln" Properties="Configuration=Release-Net40" />
-    <MSBuild Projects="..\DSmall.DynamicsCrm.UnitTest.Core.sln" Properties="Configuration=Release-Net45" />
+    <MSBuild Projects="..\Springboard365.Xrm.UnitTest.Core.sln" Properties="Configuration=Release-Net40" />
+    <MSBuild Projects="..\Springboard365.Xrm.UnitTest.Core.sln" Properties="Configuration=Release-Net45" />
   </Target>
   <Target Name="MyGetAfterBuild">
-    <MSBuild Projects="..\DSmall.DynamicsCrm.UnitTest.Core.sln" Properties="Configuration=Release-Net40" />
-    <MSBuild Projects="..\DSmall.DynamicsCrm.UnitTest.Core.sln" Properties="Configuration=Release-Net45" />
+    <MSBuild Projects="..\Springboard365.Xrm.UnitTest.Core.sln" Properties="Configuration=Release-Net40" />
+    <MSBuild Projects="..\Springboard365.Xrm.UnitTest.Core.sln" Properties="Configuration=Release-Net45" />
   </Target>
 </Project>

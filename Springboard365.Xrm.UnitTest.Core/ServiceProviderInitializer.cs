@@ -1,4 +1,4 @@
-﻿namespace DSmall.DynamicsCrm.UnitTest.Core
+﻿namespace Springboard365.Xrm.UnitTest.Core
 {
     using System;
     using System.Collections.Generic;
@@ -7,11 +7,8 @@
     using Microsoft.Xrm.Sdk.Metadata;
     using Moq;
 
-    /// <summary>The service provider initializer.</summary>
     public static class ServiceProviderInitializer
     {
-        /// <summary>The setup.</summary>
-        /// <returns>The <see cref="IServiceProvider"/>.</returns>
         public static Mock<IServiceProvider> Setup()
         {
             var mockPluginContext = SetupPluginContext();
@@ -21,8 +18,6 @@
             return SetupServiceProvider(mockPluginContext, mockOrganizationServiceFactory, mockTracingService);
         }
 
-        /// <summary>The setup organization service factory.</summary>
-        /// <returns>The <see cref="Mock"/>.</returns>
         public static Mock<IOrganizationServiceFactory> SetupOrganizationServiceFactory()
         {
             var mockOrganizationService = SetupOrganizationService();
@@ -35,8 +30,6 @@
             return mockOrganizationServiceFactory;
         }
 
-        /// <summary>The setup plugin context.</summary>
-        /// <returns>The <see cref="Mock"/>.</returns>
         public static Mock<IPluginExecutionContext> SetupPluginContext()
         {
             var mockPluginContext = new Mock<IPluginExecutionContext>();
