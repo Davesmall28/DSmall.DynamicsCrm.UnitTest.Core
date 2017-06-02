@@ -1,11 +1,12 @@
 ﻿namespace Springboard365.Xrm.UnitTest.Core
 {
+    using System;
     using Microsoft.Xrm.Sdk;
     using Moq;
 
     public static class PluginExecutionContextExtensions
     {
-        public static Mock<IPluginExecutionContext> WithInputParameters(this Mock<IPluginExecutionContext> pluginContextMock, ParameterCollection parameterCollection)
+        public static Mock<IPluginExecutionContext> WithInputParameters(this Mock<IPluginExecutionContext> pluginContextMock, Func<ParameterCollection> parameterCollection)
         {
             pluginContextMock
                 .Setup(context => context.InputParameters)
@@ -14,7 +15,7 @@
             return pluginContextMock;
         }
 
-        public static Mock<IPluginExecutionContext> WithPreEntityImages(this Mock<IPluginExecutionContext> pluginContextMock, EntityImageCollection entityImageCollection)
+        public static Mock<IPluginExecutionContext> WithPreEntityImages(this Mock<IPluginExecutionContext> pluginContextMock, Func<EntityImageCollection> entityImageCollection)
         {
             pluginContextMock
                 .Setup(context => context.PreEntityImages)
@@ -23,7 +24,7 @@
             return pluginContextMock;
         }
 
-        public static Mock<IPluginExecutionContext> WithPostEntityImages(this Mock<IPluginExecutionContext> pluginContextMock, EntityImageCollection entityImageCollection)
+        public static Mock<IPluginExecutionContext> WithPostEntityImages(this Mock<IPluginExecutionContext> pluginContextMock, Func<EntityImageCollection> entityImageCollection)
         {
             pluginContextMock
                 .Setup(context => context.PostEntityImages)

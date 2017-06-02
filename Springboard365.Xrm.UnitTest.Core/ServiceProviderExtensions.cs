@@ -6,7 +6,7 @@
 
     public static class ServiceProviderExtensions
     {
-        public static Mock<IServiceProvider> WithInputParameters(this Mock<IServiceProvider> serviceProviderMock, ParameterCollection parameterCollection)
+        public static Mock<IServiceProvider> WithInputParameters(this Mock<IServiceProvider> serviceProviderMock, Func<ParameterCollection> parameterCollection)
         {
             var mockPluginContext = new Mock<IPluginExecutionContext>();
 
@@ -21,7 +21,7 @@
             return serviceProviderMock;
         }
 
-        public static Mock<IServiceProvider> WithPreEntityImages(this Mock<IServiceProvider> serviceProviderMock, EntityImageCollection entityImageCollection)
+        public static Mock<IServiceProvider> WithPreEntityImages(this Mock<IServiceProvider> serviceProviderMock, Func<EntityImageCollection> entityImageCollection)
         {
             var mockPluginContext = new Mock<IPluginExecutionContext>();
 
@@ -36,7 +36,7 @@
             return serviceProviderMock;
         }
 
-        public static Mock<IServiceProvider> WithPostEntityImages(this Mock<IServiceProvider> serviceProviderMock, EntityImageCollection entityImageCollection)
+        public static Mock<IServiceProvider> WithPostEntityImages(this Mock<IServiceProvider> serviceProviderMock, Func<EntityImageCollection> entityImageCollection)
         {
             var mockPluginContext = new Mock<IPluginExecutionContext>();
 

@@ -2,23 +2,16 @@
 {
     using System;
     using Moq;
+    using Springboard365.UnitTest.Core;
 
-    public class SpecificationFixture<TUnderTest>
+    public abstract class SpecificationFixture<TUnderTest> : SpecificationFixtureBase<TUnderTest>
         where TUnderTest : class
     {
-        public SpecificationFixture()
+        protected SpecificationFixture()
         {
             ServiceProvider = ServiceProviderInitializer.Setup().WithDefault();
-
-            UnderTest = (TUnderTest)Activator.CreateInstance(typeof(TUnderTest));
         }
-
-        public TUnderTest UnderTest { get; set; }
 
         public Mock<IServiceProvider> ServiceProvider { get; set; }
-
-        public virtual void PerformTestSetup()
-        {
-        }
     }
 }
