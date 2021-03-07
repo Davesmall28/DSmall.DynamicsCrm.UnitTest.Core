@@ -4,10 +4,10 @@
     using Moq;
     using Springboard365.UnitTest.Core;
 
-    public abstract class SpecificationFixture<TUnderTest> : SpecificationFixtureBase<TUnderTest>
+    public abstract class PluginSpecificationFixture<TUnderTest> : SpecificationFixture<TUnderTest>
         where TUnderTest : class
     {
-        protected SpecificationFixture()
+        protected PluginSpecificationFixture()
         {
             ServiceProvider = ServiceProviderInitializer.Setup().WithDefault();
         }
